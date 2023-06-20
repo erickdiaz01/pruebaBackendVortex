@@ -9,9 +9,9 @@ import java.util.List;
 @RequiredArgsConstructor
 public class VerVehiculosSinAsociarAConductorUseCase {
 
-    private  final VehiculoRepository vehiculoRepository;
+    private final VehiculoRepository vehiculoRepository;
 
-    public List<Vehiculo> listarVehiculosSinAsociar(int conductorId){
+    public List<Vehiculo> listarVehiculosSinAsociar(int conductorId) {
         return vehiculoRepository.listarVehiculosDisponiblesParaConductor(conductorId);
     }
 }

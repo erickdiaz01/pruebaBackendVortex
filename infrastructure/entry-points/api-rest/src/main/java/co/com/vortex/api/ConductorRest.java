@@ -1,6 +1,5 @@
 package co.com.vortex.api;
 
-
 import co.com.vortex.api.responsehandler.ResponseHandler;
 import co.com.vortex.model.conductor.Conductor;
 import co.com.vortex.usecase.conductor.registrarconductores.RegistrarConductoresUseCase;
@@ -18,25 +17,26 @@ import java.util.List;
 @AllArgsConstructor
 public class ConductorRest {
 
-       private final RegistrarConductoresUseCase registrarConductoresUseCase;
-private final VerConductoresUseCase verConductoresUseCase;
+    private final RegistrarConductoresUseCase registrarConductoresUseCase;
+    private final VerConductoresUseCase verConductoresUseCase;
 
     @GetMapping
     public ResponseEntity<List<Conductor>> getConductores() {
-     try {
-         return ResponseHandler.generateResponse( verConductoresUseCase.listarConductores(), HttpStatus.OK);
-     }catch (Exception error){
-         throw new RuntimeException("No se encontraron los conductores",error);
-     }
+        try {
+            return ResponseHandler.generateResponse(verConductoresUseCase.listarConductores(), HttpStatus.OK);
+        } catch (Exception error) {
+            throw new RuntimeException("No se encontraron los conductores", error);
+        }
 
     }
 
     @PostMapping
     public ResponseEntity<Conductor> registrarConductor(@RequestBody Conductor conductor) {
-       try {
-           return ResponseHandler.generateResponse(registrarConductoresUseCase.registrarConductor(conductor),HttpStatus.OK);
-       } catch (Exception error){
-           throw new RuntimeException("No se registro el conductor",error);
-       }
+        try {
+            return ResponseHandler.generateResponse(registrarConductoresUseCase.registrarConductor(conductor),
+                    HttpStatus.OK);
+        } catch (Exception error) {
+            throw new RuntimeException("No se registro el conductor", error);
+        }
     }
 }

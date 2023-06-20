@@ -12,5 +12,6 @@ public interface VehiculoRepository {
     List<Vehiculo> listarVehiculosAsociadosAConductor(int conductorId);
 
     Vehiculo asociarConductorAVehiculo(int vehiculoId, int conductorId);
-Vehiculo desasociarConductorDeVehiculo(int vehiculoId,int conductorId);
+
+    Vehiculo desasociarConductorDeVehiculo(int vehiculoId, int conductorId);
 }

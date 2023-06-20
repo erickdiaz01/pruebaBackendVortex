@@ -3,8 +3,7 @@ package co.com.vortex.usecase.vehiculo.vervehiculosasociadosaconductor;
 import co.com.vortex.model.conductor.Conductor;
 import co.com.vortex.model.vehiculo.Vehiculo;
 import co.com.vortex.model.vehiculo.gateways.VehiculoRepository;
-import co.com.vortex.usecase.vehiculo.registrarvehiculoparapedidos.RegistrarVehiculoParaPedidosUseCase;
-import org.junit.jupiter.api.BeforeEach;
+
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -19,11 +18,10 @@ import static org.mockito.Mockito.when;
 @ExtendWith(MockitoExtension.class)
 class VerVehiculosAsociadosAConductorUseCaseTest {
 
-
     @Mock
     private VehiculoRepository vehiculoRepository;
     @InjectMocks
-    private VerVehiculosAsociadosAConductorUseCase verVehiculosAsociadosAConductorUseCase ;
+    private VerVehiculosAsociadosAConductorUseCase verVehiculosAsociadosAConductorUseCase;
 
     @Test
     void listarVehiculosAsociados() {
@@ -59,12 +57,12 @@ class VerVehiculosAsociadosAConductorUseCaseTest {
                 .capacidad("10kg")
                 .build();
 
-        List<Vehiculo> vehiculos = List.of(vehiculo,vehiculo1,vehiculo2);
-        List<Vehiculo> vehiculosAsociadosAConductor = vehiculos.stream().filter(vehiculoFilter->{
-            if(vehiculoFilter.getConductor()==null){
+        List<Vehiculo> vehiculos = List.of(vehiculo, vehiculo1, vehiculo2);
+        List<Vehiculo> vehiculosAsociadosAConductor = vehiculos.stream().filter(vehiculoFilter -> {
+            if (vehiculoFilter.getConductor() == null) {
                 return false;
-            }else{
-                return vehiculoFilter.getConductor().getId()==1;
+            } else {
+                return vehiculoFilter.getConductor().getId() == 1;
             }
         }).toList();
 
@@ -72,7 +70,7 @@ class VerVehiculosAsociadosAConductorUseCaseTest {
         List<Vehiculo> result = verVehiculosAsociadosAConductorUseCase.listarVehiculosAsociados(conductor.getId());
         List<Vehiculo> vehiculosAsociados = List.of(vehiculo1);
         assertNotNull(result);
-        assertEquals(result,vehiculosAsociados);
+        assertEquals(result, vehiculosAsociados);
 
     }
 }

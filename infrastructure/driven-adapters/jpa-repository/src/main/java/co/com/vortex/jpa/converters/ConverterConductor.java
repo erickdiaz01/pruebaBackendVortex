@@ -11,12 +11,11 @@ public class ConverterConductor {
         throw new IllegalStateException("Utility Class");
     }
 
-
     public static Conductor convertConductorDataToConductor(ConductorData conductorData) {
         return conductorData != null ? Conductor.builder()
                 .id(conductorData.getId())
                 .identificacion(conductorData.getIdentificacion())
-                .apellido(conductorData.getApellido() !=null? conductorData.getApellido() : "")
+                .apellido(conductorData.getApellido() != null ? conductorData.getApellido() : "")
                 .nombre(conductorData.getNombre())
                 .direccion(conductorData.getDireccion() != null ? conductorData.getDireccion() : "")
                 .telefono(conductorData.getTelefono())
@@ -32,12 +31,12 @@ public class ConverterConductor {
     public static ConductorData convertConductorToConductorData(Conductor conductor) {
         ConductorData conductorData = new ConductorData();
         if (conductor != null) {
-          conductorData.setId(conductor.getId());
-          conductorData.setIdentificacion(conductor.getIdentificacion());
-          conductorData.setApellido(conductor.getApellido()!=null ? conductor.getApellido() : "");
-          conductorData.setNombre(conductor.getNombre());
-          conductorData.setDireccion(conductor.getDireccion()!= null ? conductor.getDireccion() : "");
-          conductorData.setTelefono(conductor.getTelefono());
+            conductorData.setId(conductor.getId());
+            conductorData.setIdentificacion(conductor.getIdentificacion());
+            conductorData.setApellido(conductor.getApellido() != null ? conductor.getApellido() : "");
+            conductorData.setNombre(conductor.getNombre());
+            conductorData.setDireccion(conductor.getDireccion() != null ? conductor.getDireccion() : "");
+            conductorData.setTelefono(conductor.getTelefono());
         }
         return conductorData;
     }

@@ -2,7 +2,6 @@ package co.com.vortex.usecase.conductor.verconductores;
 
 import co.com.vortex.model.conductor.Conductor;
 import co.com.vortex.model.conductor.gateways.ConductorRepository;
-import co.com.vortex.usecase.conductor.registrarconductores.RegistrarConductoresUseCase;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -13,6 +12,7 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.when;
+
 @ExtendWith(MockitoExtension.class)
 class VerConductoresUseCaseTest {
 
@@ -20,7 +20,8 @@ class VerConductoresUseCaseTest {
     private ConductorRepository conductorRepository;
 
     @InjectMocks
-    private VerConductoresUseCase verConductoresUseCase ;
+    private VerConductoresUseCase verConductoresUseCase;
+
     @Test
     void listarConductores() {
 
@@ -38,12 +39,12 @@ class VerConductoresUseCaseTest {
                 .telefono("7654321")
                 .direccion("Cra 88C #45A")
                 .build();
-        List<Conductor> conductores = List.of(conductor1,conductor);
+        List<Conductor> conductores = List.of(conductor1, conductor);
         when(conductorRepository.listarConductores()).thenReturn(conductores);
 
         List<Conductor> result = verConductoresUseCase.listarConductores();
 
         assertNotNull(result);
-        assertEquals(conductores,result);
+        assertEquals(conductores, result);
     }
 }

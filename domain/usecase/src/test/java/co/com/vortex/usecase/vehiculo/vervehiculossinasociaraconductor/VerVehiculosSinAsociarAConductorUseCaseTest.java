@@ -3,8 +3,7 @@ package co.com.vortex.usecase.vehiculo.vervehiculossinasociaraconductor;
 import co.com.vortex.model.conductor.Conductor;
 import co.com.vortex.model.vehiculo.Vehiculo;
 import co.com.vortex.model.vehiculo.gateways.VehiculoRepository;
-import co.com.vortex.usecase.vehiculo.vervehiculosasociadosaconductor.VerVehiculosAsociadosAConductorUseCase;
-import org.junit.jupiter.api.BeforeEach;
+
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -19,11 +18,10 @@ import static org.mockito.Mockito.when;
 @ExtendWith(MockitoExtension.class)
 class VerVehiculosSinAsociarAConductorUseCaseTest {
 
-
     @Mock
     private VehiculoRepository vehiculoRepository;
     @InjectMocks
-    private VerVehiculosSinAsociarAConductorUseCase verVehiculosSinAsociarAConductorUseCase ;
+    private VerVehiculosSinAsociarAConductorUseCase verVehiculosSinAsociarAConductorUseCase;
 
     @Test
     void listarVehiculosSinAsociar() {
@@ -59,20 +57,21 @@ class VerVehiculosSinAsociarAConductorUseCaseTest {
                 .capacidad("10kg")
                 .build();
 
-        List<Vehiculo> vehiculos = List.of(vehiculo,vehiculo1,vehiculo2);
-        List<Vehiculo> vehiculosDisponiblesParaConductor = vehiculos.stream().filter(vehiculoFilter->{
-            if(vehiculoFilter.getConductor()==null){
+        List<Vehiculo> vehiculos = List.of(vehiculo, vehiculo1, vehiculo2);
+        List<Vehiculo> vehiculosDisponiblesParaConductor = vehiculos.stream().filter(vehiculoFilter -> {
+            if (vehiculoFilter.getConductor() == null) {
                 return true;
-            }else{
-                return vehiculoFilter.getConductor().getId()!=1;
+            } else {
+                return vehiculoFilter.getConductor().getId() != 1;
             }
         }).toList();
 
-        when(vehiculoRepository.listarVehiculosDisponiblesParaConductor(1)).thenReturn(vehiculosDisponiblesParaConductor);
+        when(vehiculoRepository.listarVehiculosDisponiblesParaConductor(1))
+                .thenReturn(vehiculosDisponiblesParaConductor);
         List<Vehiculo> result = verVehiculosSinAsociarAConductorUseCase.listarVehiculosSinAsociar(conductor.getId());
-        List<Vehiculo> vehiculosDisponibles= List.of(vehiculo,vehiculo2);
+        List<Vehiculo> vehiculosDisponibles = List.of(vehiculo, vehiculo2);
         assertNotNull(result);
-        assertEquals(result,vehiculosDisponibles);
+        assertEquals(result, vehiculosDisponibles);
 
     }
 }

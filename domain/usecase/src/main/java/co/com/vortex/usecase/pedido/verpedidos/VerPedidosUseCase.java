@@ -10,7 +10,7 @@ import java.util.List;
 public class VerPedidosUseCase {
     private final PedidoRepository pedidoRepository;
 
-    public List<Pedido> listarPedidos(){
+    public List<Pedido> listarPedidos() {
         return pedidoRepository.listarPedidos();
 
     }

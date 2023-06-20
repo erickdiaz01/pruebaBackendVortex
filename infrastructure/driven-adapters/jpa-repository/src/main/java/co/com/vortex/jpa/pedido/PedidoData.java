@@ -26,12 +26,12 @@ public class PedidoData {
     @Pattern(regexp = "[^0-9]*", message = "El campo no debe contener números")
     private String tipoPedido;
 
-    @Column(name = "direccion",nullable = false)
+    @Column(name = "direccion", nullable = false)
     @Size(max = 50, message = "Limite máximo de 50 caracteres")
     private String direccion;
 
     @ManyToOne(optional = true)
-    @JoinColumn(name = "conductor_id",nullable = true)
+    @JoinColumn(name = "conductor_id", nullable = true)
     private ConductorData conductor;
 
 }

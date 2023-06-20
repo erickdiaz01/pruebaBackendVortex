@@ -10,7 +10,7 @@ import java.util.List;
 public class VerConductoresUseCase {
     private final ConductorRepository conductorRepository;
 
-    public List<Conductor> listarConductores(){
+    public List<Conductor> listarConductores() {
         return conductorRepository.listarConductores();
     }
 }

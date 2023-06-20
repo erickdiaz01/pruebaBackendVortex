@@ -30,10 +30,10 @@ public class ConductorData {
     @Pattern(regexp = "[^0-9]*", message = "El campo no debe contener números")
     private String apellido;
 
-    @Column(name = "nombre",nullable = false)
+    @Column(name = "nombre", nullable = false)
     @Size(max = 20, message = "Limite máximo de 20 caracteres")
     @Pattern(regexp = "[^0-9]*", message = "El campo no debe contener números")
-    private  String nombre;
+    private String nombre;
 
     @Column(name = "telefono", nullable = false)
     @Size(max = 10, message = "Limite máximo de 10 caracteres")

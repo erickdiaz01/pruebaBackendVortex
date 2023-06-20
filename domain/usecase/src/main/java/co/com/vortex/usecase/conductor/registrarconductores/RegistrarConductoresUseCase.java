@@ -8,7 +8,7 @@ import lombok.RequiredArgsConstructor;
 public class RegistrarConductoresUseCase {
     private final ConductorRepository conductorRepository;
 
-    public Conductor registrarConductor(Conductor conductor){
-        return  conductorRepository.registrarConductor(conductor);
+    public Conductor registrarConductor(Conductor conductor) {
+        return conductorRepository.registrarConductor(conductor);
     }
 }

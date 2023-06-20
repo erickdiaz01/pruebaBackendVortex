@@ -12,5 +12,4 @@ public interface ConductorRepository {
 
     Conductor registrarConductor(Conductor conductor);
 
-
 }

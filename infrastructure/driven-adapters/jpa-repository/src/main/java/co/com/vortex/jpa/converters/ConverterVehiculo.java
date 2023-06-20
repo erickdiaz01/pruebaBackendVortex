@@ -1,8 +1,7 @@
 package co.com.vortex.jpa.converters;
 
-import co.com.vortex.jpa.conductor.ConductorData;
 import co.com.vortex.jpa.vehiculo.VehiculoData;
-import co.com.vortex.model.conductor.Conductor;
+
 import co.com.vortex.model.vehiculo.Vehiculo;
 
 import java.util.List;
@@ -13,11 +12,11 @@ public class ConverterVehiculo {
         throw new IllegalStateException("Utility Class");
     }
 
-
     public static Vehiculo convertVehiculoDataToVehiculo(VehiculoData vehiculoData) {
         return vehiculoData != null ? Vehiculo.builder()
                 .id(vehiculoData.getId())
-                .conductor(vehiculoData.getConductor()==null? null : ConverterConductor.convertConductorDataToConductor(vehiculoData.getConductor()))
+                .conductor(vehiculoData.getConductor() == null ? null
+                        : ConverterConductor.convertConductorDataToConductor(vehiculoData.getConductor()))
                 .modelo(vehiculoData.getModelo())
                 .capacidad(vehiculoData.getCapacidad())
                 .placa(vehiculoData.getPlaca())
@@ -34,10 +33,11 @@ public class ConverterVehiculo {
         VehiculoData vehiculoData = new VehiculoData();
         if (vehiculo != null) {
             vehiculoData.setId(vehiculo.getId());
-           vehiculoData.setConductor(vehiculo.getConductor()==null ? null : ConverterConductor.convertConductorToConductorData(vehiculo.getConductor()));
-           vehiculoData.setCapacidad(vehiculo.getCapacidad());
-           vehiculoData.setModelo(vehiculo.getModelo());
-           vehiculoData.setPlaca(vehiculo.getPlaca());
+            vehiculoData.setConductor(vehiculo.getConductor() == null ? null
+                    : ConverterConductor.convertConductorToConductorData(vehiculo.getConductor()));
+            vehiculoData.setCapacidad(vehiculo.getCapacidad());
+            vehiculoData.setModelo(vehiculo.getModelo());
+            vehiculoData.setPlaca(vehiculo.getPlaca());
         }
         return vehiculoData;
     }

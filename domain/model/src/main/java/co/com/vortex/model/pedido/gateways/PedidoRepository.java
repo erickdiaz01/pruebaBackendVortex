@@ -9,7 +9,7 @@ public interface PedidoRepository {
 
     List<Pedido> listarPedidos();
 
-    Pedido crearPedido( Pedido pedido);
+    Pedido crearPedido(Pedido pedido);
 
     Pedido findPedidoById(Integer id);
 

@@ -7,19 +7,18 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
-import org.springframework.beans.factory.annotation.Autowired;
-import reactor.core.publisher.Mono;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
 class RegistrarConductoresUseCaseTest {
-@Mock
-private ConductorRepository conductorRepository;
+    @Mock
+    private ConductorRepository conductorRepository;
 
-@InjectMocks
-private RegistrarConductoresUseCase registrarConductoresUseCase;
+    @InjectMocks
+    private RegistrarConductoresUseCase registrarConductoresUseCase;
+
     @Test
     void registrarConductor() {
 
@@ -31,12 +30,11 @@ private RegistrarConductoresUseCase registrarConductoresUseCase;
                 .direccion("Cra 88C #45A")
                 .build();
 
-
-                when(conductorRepository.registrarConductor(conductor)).thenReturn(conductor);
+        when(conductorRepository.registrarConductor(conductor)).thenReturn(conductor);
 
         Conductor result = registrarConductoresUseCase.registrarConductor(conductor);
 
         assertNotNull(result);
-        assertEquals(conductor,result);
+        assertEquals(conductor, result);
     }
 }

@@ -1,8 +1,7 @@
 package co.com.vortex.model.pedido;
+
 import co.com.vortex.model.conductor.Conductor;
 import lombok.*;
-//import lombok.NoArgsConstructor;
-
 
 @Getter
 @Setter
